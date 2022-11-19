@@ -16,16 +16,17 @@ public class ViewPagerCryptographyAdapter extends FragmentStateAdapter
     private static final int TAB_ITEMS_COUNT = 2;
     private static List<String> myFragList;
 
-    public ViewPagerCryptographyAdapter(@NonNull @NotNull FragmentActivity fragmentActivity) {
+    public ViewPagerCryptographyAdapter(FragmentActivity fragmentActivity) {
         super(fragmentActivity);
-        myFragList = new ArrayList<>();
+        myFragList = new ArrayList<>(TAB_ITEMS_COUNT);
+        myFragList.add("Encrypter");
+        myFragList.add("Decrypter");
     }
 
-    @NonNull
-    @NotNull
     @Override
     public Fragment createFragment(int position) {
         Fragment currentFragment;
+        System.out.println("InsideCreate");
         switch (position)
         {
             case 1:
@@ -37,6 +38,7 @@ public class ViewPagerCryptographyAdapter extends FragmentStateAdapter
             default:
                 currentFragment = null;
         }
+        System.out.println("Current Fragment: " + currentFragment);
         return currentFragment;
     }
 
@@ -45,11 +47,12 @@ public class ViewPagerCryptographyAdapter extends FragmentStateAdapter
         return TAB_ITEMS_COUNT;
     }
 
-    public void addFragmentInList(String fragmentName){
-        myFragList.add(fragmentName);
-    }
-
     public String getFragmentTitle(int position){
         return myFragList.get(position);
+    }
+
+    @Override
+    public long getItemId(int position) {
+        return Long.parseLong(myFragList.get(position));
     }
 }

@@ -11,6 +11,8 @@ import com.skytale.myadapter.ViewPagerCryptographyAdapter;
 public class MainActivity extends AppCompatActivity {
     private TabLayout tabSkyMain;
     private ViewPager2 viewPagerSkyMain;
+
+    private ViewPagerCryptographyAdapter myAdapter;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -18,18 +20,15 @@ public class MainActivity extends AppCompatActivity {
 
         tabSkyMain = findViewById(R.id.tabSkyMain);
         viewPagerSkyMain = findViewById(R.id.viewPagerSkyMain);
-
-        ViewPagerCryptographyAdapter myAdapter = new ViewPagerCryptographyAdapter(this);
-        myAdapter.addFragmentInList("Encrypter");
-        myAdapter.addFragmentInList("Decrypter");
+        myAdapter = new ViewPagerCryptographyAdapter(this);
         viewPagerSkyMain.setAdapter(myAdapter);
 
-        new TabLayoutMediator(
-                tabSkyMain, viewPagerSkyMain,
-                (tabSkyMain, position) -> tabSkyMain.setText
-                        (
-                            myAdapter.getFragmentTitle(position)
-                        )
-        ).attach();
+        new TabLayoutMediator
+                (
+                    tabSkyMain, viewPagerSkyMain,
+                    (tab, position) -> {
+                        tab.setText(myAdapter.getFragmentTitle(position));
+                    }
+                ).attach();
     }
 }
