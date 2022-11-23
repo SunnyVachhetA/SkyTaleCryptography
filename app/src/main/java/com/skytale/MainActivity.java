@@ -1,34 +1,30 @@
 package com.skytale;
 
-import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
+import androidx.appcompat.app.AppCompatActivity;
 import androidx.viewpager.widget.ViewPager;
-import androidx.viewpager2.widget.ViewPager2;
 import com.google.android.material.tabs.TabLayout;
-import com.google.android.material.tabs.TabLayoutMediator;
 import com.skytale.myadapter.ViewPagerCryptographyAdapter;
 
 public class MainActivity extends AppCompatActivity {
     private TabLayout tabSkyMain;
-    private ViewPager2 viewPagerSkyMain;
+    private ViewPager viewPagerSkyMain;
 
-    private ViewPagerCryptographyAdapter myAdapter;
+    private ViewPagerCryptographyAdapter myFragmentAdapter;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        init();
+    }
 
+    private void init(){
         tabSkyMain = findViewById(R.id.tabSkyMain);
         viewPagerSkyMain = findViewById(R.id.viewPagerSkyMain);
-        myAdapter = new ViewPagerCryptographyAdapter(this);
-        viewPagerSkyMain.setAdapter(myAdapter);
+        myFragmentAdapter = new ViewPagerCryptographyAdapter(getSupportFragmentManager());
+        viewPagerSkyMain.setAdapter(myFragmentAdapter);
+//        tabSkyMain.setupWithViewPager(viewPagerSkyMain);
 
-        new TabLayoutMediator
-                (
-                    tabSkyMain, viewPagerSkyMain,
-                    (tab, position) -> {
-                        tab.setText(myAdapter.getFragmentTitle(position));
-                    }
-                ).attach();
+        tabSkyMain.setupWithViewPager(viewPagerSkyMain);
     }
 }

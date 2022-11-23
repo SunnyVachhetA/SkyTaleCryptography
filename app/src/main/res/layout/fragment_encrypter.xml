@@ -11,6 +11,5 @@
         android:layout_height="wrap_content"
         android:text="Encrypter Fragment"
         android:textSize="30sp"
-        android:textColor="#fff"
-        />
+        android:textColor="#fff" />
 </LinearLayout>

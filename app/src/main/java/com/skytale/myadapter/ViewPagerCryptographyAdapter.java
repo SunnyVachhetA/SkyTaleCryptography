@@ -1,8 +1,11 @@
 package com.skytale.myadapter;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentActivity;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentPagerAdapter;
 import androidx.viewpager2.adapter.FragmentStateAdapter;
 import com.skytale.tabfragments.DecrypterFragment;
 import com.skytale.tabfragments.EncrypterFragment;
@@ -11,48 +14,36 @@ import org.jetbrains.annotations.NotNull;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ViewPagerCryptographyAdapter extends FragmentStateAdapter
+public class ViewPagerCryptographyAdapter extends FragmentPagerAdapter
 {
-    private static final int TAB_ITEMS_COUNT = 2;
-    private static List<String> myFragList;
-
-    public ViewPagerCryptographyAdapter(FragmentActivity fragmentActivity) {
-        super(fragmentActivity);
-        myFragList = new ArrayList<>(TAB_ITEMS_COUNT);
-        myFragList.add("Encrypter");
-        myFragList.add("Decrypter");
+    private static final int TAB_COUNT = 2;
+    private static String[] tabLabel = {"Encrypter", "Decrypter"};
+    public ViewPagerCryptographyAdapter(FragmentManager fm) {
+        super(fm);
     }
 
     @Override
-    public Fragment createFragment(int position) {
-        Fragment currentFragment;
-        System.out.println("InsideCreate");
+    public Fragment getItem(int position) {
+        Fragment selectedFragment;
         switch (position)
         {
             case 1:
-                currentFragment = new EncrypterFragment();
+                selectedFragment = new DecrypterFragment();
                 break;
-            case 2:
-                currentFragment = new DecrypterFragment();
-                break;
+            case 0:
             default:
-                currentFragment = null;
+                selectedFragment = new EncrypterFragment();
         }
-        System.out.println("Current Fragment: " + currentFragment);
-        return currentFragment;
+        return selectedFragment;
     }
 
     @Override
-    public int getItemCount() {
-        return TAB_ITEMS_COUNT;
-    }
-
-    public String getFragmentTitle(int position){
-        return myFragList.get(position);
+    public int getCount() {
+        return TAB_COUNT;
     }
 
     @Override
-    public long getItemId(int position) {
-        return Long.parseLong(myFragList.get(position));
+    public CharSequence getPageTitle(int position) {
+        return tabLabel[position];
     }
 }
