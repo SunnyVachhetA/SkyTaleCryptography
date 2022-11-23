@@ -4,14 +4,14 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.EditText;
 import androidx.fragment.app.Fragment;
 import com.skytale.R;
 public class EncrypterFragment extends Fragment {
-
-    public EncrypterFragment() {
-        // Required empty public constructor
-    }
-
+    private EditText inputText, resultText;
+    private Button clear, copy;
+    public EncrypterFragment() {}
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
