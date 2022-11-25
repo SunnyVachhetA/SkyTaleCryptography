@@ -20,6 +20,6 @@ public class CopyUtil {
         {
             message = "Nothing To Copy! Please Try Again";
         }
-        Toast.makeText(context, message, duration).show();
+        ToastUtil.createToast(context, message);
     }
 }

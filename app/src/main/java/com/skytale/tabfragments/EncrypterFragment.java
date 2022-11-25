@@ -9,6 +9,7 @@ import android.view.ViewGroup;
 import android.widget.*;
 import androidx.fragment.app.Fragment;
 import com.skytale.R;
+import com.skytale.service.EncrypterService;
 import com.skytale.util.AlgorithmOptions;
 import com.skytale.util.ClearUtil;
 import com.skytale.util.CopyUtil;
@@ -26,7 +27,11 @@ public class EncrypterFragment extends Fragment implements View.OnClickListener 
     private Spinner algorithm;
 
     private List<String> algoOptions;
-    public EncrypterFragment() {}
+
+    private EncrypterService encrypterService;
+    public EncrypterFragment() {
+        encrypterService = new EncrypterService();
+    }
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -81,6 +86,9 @@ public class EncrypterFragment extends Fragment implements View.OnClickListener 
                 break;
 
             case R.id.btnEncrypt:
+                String plainText = getUserInput();
+                String selectedAlgorithm = algorithm.getSelectedItem().toString();
+                encrypterService.handleEncryption(plainText, selectedAlgorithm, context);
                 break;
 
             default:

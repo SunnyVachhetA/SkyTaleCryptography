@@ -22,6 +22,6 @@ public class PasteUtil {
             inputText.setText(pasteData);
         }
         else message = "Unsupported Paste Operation!";
-        Toast.makeText(context, message, duration).show();
+        ToastUtil.createToast(context, message);
     }
 }
