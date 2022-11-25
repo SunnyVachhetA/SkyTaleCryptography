@@ -63,7 +63,6 @@ public class EncrypterFragment extends Fragment implements View.OnClickListener 
 
     @Override
     public void onClick(View view) {
-
         Context context = getContext();
         switch (view.getId()) {
             case R.id.btnClear:
@@ -96,7 +95,6 @@ public class EncrypterFragment extends Fragment implements View.OnClickListener 
 
     private String getResultText(){
         String text = String.valueOf(resultText.getText());
-        System.out.println("ResultText: " + text);
         return text;
     }
 }
