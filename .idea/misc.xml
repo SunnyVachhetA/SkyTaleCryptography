@@ -3,7 +3,7 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
-        <entry key="app/src/main/res/layout/activity_main.xml" value="0.4" />
+        <entry key="app/src/main/res/layout/activity_main.xml" value="0.1" />
         <entry key="app/src/main/res/layout/activity_sky_tale_splash.xml" value="0.3494791666666667" />
         <entry key="app/src/main/res/layout/fragment_decrypter.xml" value="0.32708333333333334" />
         <entry key="app/src/main/res/layout/fragment_encrypter.xml" value="0.32708333333333334" />

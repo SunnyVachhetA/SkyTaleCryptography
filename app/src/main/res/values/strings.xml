@@ -2,4 +2,23 @@
     <string name="app_name">SkyTale Cryptography</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <string name = "encrypt_message">
+        Enter or Paste Plain Text Here
+    </string>
+
+    <string name="decrypt_message">
+        Enter or Paste Encrypted Text Here
+    </string>
+
+    <string name="result_encrypt_message">
+        Encrypted Text Will Be Shown Here
+    </string>
+    <string name="result_decrypt_message">
+        Decrypted Text Will Be Shown Here
+    </string>
+
+    <string name = "subTitle">
+        Encrypter Decrypter
+    </string>
 </resources>
