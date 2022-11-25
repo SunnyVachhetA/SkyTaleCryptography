@@ -1,18 +1,10 @@
 package com.skytale.myadapter;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentActivity;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentPagerAdapter;
-import androidx.viewpager2.adapter.FragmentStateAdapter;
 import com.skytale.tabfragments.DecrypterFragment;
 import com.skytale.tabfragments.EncrypterFragment;
-import org.jetbrains.annotations.NotNull;
-
-import java.util.ArrayList;
-import java.util.List;
 
 public class ViewPagerCryptographyAdapter extends FragmentPagerAdapter
 {

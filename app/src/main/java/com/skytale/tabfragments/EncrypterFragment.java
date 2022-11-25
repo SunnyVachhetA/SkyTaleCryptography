@@ -1,6 +1,5 @@
 package com.skytale.tabfragments;
 
-import android.content.ClipboardManager;
 import android.content.Context;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -88,7 +87,7 @@ public class EncrypterFragment extends Fragment implements View.OnClickListener 
             case R.id.btnEncrypt:
                 String plainText = getUserInput();
                 String selectedAlgorithm = algorithm.getSelectedItem().toString();
-                encrypterService.handleEncryption(plainText, selectedAlgorithm, context);
+                encrypterService.handleEncryption(plainText, selectedAlgorithm, context, resultText);
                 break;
 
             default:
