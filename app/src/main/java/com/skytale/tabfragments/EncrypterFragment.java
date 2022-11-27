@@ -9,10 +9,7 @@ import android.widget.*;
 import androidx.fragment.app.Fragment;
 import com.skytale.R;
 import com.skytale.service.EncrypterService;
-import com.skytale.util.AlgorithmOptions;
-import com.skytale.util.ClearUtil;
-import com.skytale.util.CopyUtil;
-import com.skytale.util.PasteUtil;
+import com.skytale.util.*;
 
 import java.util.List;
 
@@ -33,7 +30,7 @@ public class EncrypterFragment extends Fragment implements View.OnClickListener 
     }
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
+                             Bundle savedInstanceState)  {
         parentView = inflater.inflate(R.layout.fragment_encrypter, container, false);
         init();
         setInteraction();
@@ -85,9 +82,13 @@ public class EncrypterFragment extends Fragment implements View.OnClickListener 
                 break;
 
             case R.id.btnEncrypt:
-                String plainText = getUserInput();
-                String selectedAlgorithm = algorithm.getSelectedItem().toString();
-                encrypterService.handleEncryption(plainText, selectedAlgorithm, context, resultText);
+                try {
+                    String plainText = getUserInput();
+                    String selectedAlgorithm = algorithm.getSelectedItem().toString();
+                    encrypterService.handleEncryption(plainText, selectedAlgorithm, context, resultText);
+                }catch (Exception e){
+                    ToastUtil.createToast(context, "Something Went Wrong!");
+                }
                 break;
 
             default:

@@ -7,40 +7,40 @@ import com.skytale.service.algoservice.AESService;
 import com.skytale.service.algoservice.IAlgorithm;
 import com.skytale.util.ToastUtil;
 
-public class EncrypterService {
-    public void handleEncryption(String plainText,
+public class DecrypterService {
+    public void handleDecryption(String encryptedText,
                                  String algorithm,
                                  Context context,
                                  TextView resultText) throws Exception
     {
-        int n = plainText.length();
+        int n = encryptedText.length();
         String message;
         if(n != 0)
         {
-            String encryptedText = encryptPlainText(plainText, algorithm);
-            resultText.setText(encryptedText);
-            Log.i("encryptedText", encryptedText);
-            message = "Text Encrypted";
+            String plainText = decryptEncryptedText(encryptedText, algorithm);
+            Log.i("decryptedText", plainText);
+            resultText.setText(plainText);
+            message = "Text Decrypted";
         }
         else{
-            message = "Nothing To Encrypt!";
+            message = "Nothing To Decrypt!";
         }
         ToastUtil.createToast(context, message);
     }
 
-    private String encryptPlainText(String plainText, String algorithm) throws Exception {
-        String encryptedText = "";
+    private String decryptEncryptedText(String encryptedText, String algorithm) throws Exception{
+        String decryptedText = "";
         IAlgorithm algo;
         switch (algorithm)
         {
             case "AES":
                 algo = new AESService();
-                encryptedText = algo.encrypt(plainText);
+                decryptedText = algo.decrypt(encryptedText);
                 break;
 
             case "DES":
                 break;
         }
-        return encryptedText;
+        return decryptedText;
     }
 }

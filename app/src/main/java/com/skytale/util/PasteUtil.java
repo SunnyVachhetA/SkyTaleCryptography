@@ -14,7 +14,7 @@ public class PasteUtil {
     public static void pasteText(Context context, EditText inputText) {
         clipboardService = new ClipboardManagerUtilService(context);
         String message = "";
-        if(clipboardService.hasClipboardPrimaryClip() && clipboardService.isClipboardPlainText())
+        if(clipboardService.hasClipboardPrimaryClip() && !clipboardService.isClipboardPlainText())
         {
             message = "Paste Success.";
             String pasteData = clipboardService.getClipboardPasteText();

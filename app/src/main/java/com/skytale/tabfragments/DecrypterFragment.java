@@ -8,10 +8,8 @@ import android.view.ViewGroup;
 import android.widget.*;
 import androidx.fragment.app.Fragment;
 import com.skytale.R;
-import com.skytale.util.AlgorithmOptions;
-import com.skytale.util.ClearUtil;
-import com.skytale.util.CopyUtil;
-import com.skytale.util.PasteUtil;
+import com.skytale.service.DecrypterService;
+import com.skytale.util.*;
 
 import java.util.List;
 
@@ -24,7 +22,11 @@ public class DecrypterFragment extends Fragment implements View.OnClickListener 
     private Spinner algorithm;
     private View parentView;
     private List<String> algoOptions;
-    public DecrypterFragment() {}
+
+    private DecrypterService decrypterService;
+    public DecrypterFragment() {
+        decrypterService = new DecrypterService();
+    }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -80,6 +82,15 @@ public class DecrypterFragment extends Fragment implements View.OnClickListener 
                 break;
 
             case R.id.btnDecrypt:
+                try {
+                    String encryptedText = getUserInput();
+                    String selectedAlgorithm = algorithm.getSelectedItem().toString();
+                    decrypterService.handleDecryption(encryptedText, selectedAlgorithm, context, resultText);
+                }catch (Exception e){
+                    System.out.println(e.getMessage());
+                    e.printStackTrace();
+                    ToastUtil.createToast(context, "Something Went Wrong!");
+                }
                 break;
 
             default:
