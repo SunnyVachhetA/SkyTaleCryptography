@@ -90,6 +90,7 @@ public class DecrypterFragment extends Fragment implements View.OnClickListener 
                     System.out.println(e.getMessage());
                     e.printStackTrace();
                     ToastUtil.createToast(context, "Something Went Wrong!");
+                    ClearUtil.clearText(resultText);
                 }
                 break;
 
@@ -99,7 +100,7 @@ public class DecrypterFragment extends Fragment implements View.OnClickListener 
     }
 
     private String getUserInput(){
-        return inputText.getText().toString().trim();
+        return inputText.getText().toString();
     }
     private String getResultText(){
         return resultText.getText().toString();

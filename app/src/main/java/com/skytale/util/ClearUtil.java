@@ -2,6 +2,7 @@ package com.skytale.util;
 
 import android.content.Context;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 public class ClearUtil {
@@ -16,5 +17,8 @@ public class ClearUtil {
             message = "Nothing To Remove! Please Try Again.";
         }
         ToastUtil.createToast(context, message);
+    }
+    public static void clearText(TextView resultText){
+        resultText.setText(null);
     }
 }

@@ -87,7 +87,9 @@ public class EncrypterFragment extends Fragment implements View.OnClickListener 
                     String selectedAlgorithm = algorithm.getSelectedItem().toString();
                     encrypterService.handleEncryption(plainText, selectedAlgorithm, context, resultText);
                 }catch (Exception e){
+                    e.printStackTrace();
                     ToastUtil.createToast(context, "Something Went Wrong!");
+                    ClearUtil.clearText(resultText);
                 }
                 break;
 
@@ -97,7 +99,7 @@ public class EncrypterFragment extends Fragment implements View.OnClickListener 
     }
 
     private String getUserInput(){
-        String text = String.valueOf(inputText.getText()).trim();
+        String text = String.valueOf(inputText.getText());
         return text;
     }
 
