@@ -42,6 +42,19 @@ public class DecrypterFragment extends Fragment implements View.OnClickListener 
         copyButton.setOnClickListener(this);
         pasteButton.setOnClickListener(this);
         decryptButton.setOnClickListener(this);
+
+
+        algorithm.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+                ClearUtil.clearText(resultText);
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> adapterView) {
+                ClearUtil.clearText(resultText);
+            }
+        });
     }
 
     private void init(){

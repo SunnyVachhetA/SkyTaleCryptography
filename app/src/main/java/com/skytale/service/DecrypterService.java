@@ -6,6 +6,7 @@ import android.widget.TextView;
 import com.skytale.service.algoservice.AESService;
 import com.skytale.service.algoservice.DESService;
 import com.skytale.service.algoservice.IAlgorithm;
+import com.skytale.service.algoservice.RC4Service;
 import com.skytale.util.ToastUtil;
 
 public class DecrypterService {
@@ -41,6 +42,11 @@ public class DecrypterService {
 
             case "DES":
                 algo = new DESService();
+                decryptedText = algo.decrypt(encryptedText);
+                break;
+
+            case "RC4":
+                algo = new RC4Service();
                 decryptedText = algo.decrypt(encryptedText);
                 break;
         }

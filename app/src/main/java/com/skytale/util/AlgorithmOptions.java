@@ -11,6 +11,7 @@ public class AlgorithmOptions {
             algoOptions = new ArrayList<>(2);
             algoOptions.add("AES");
             algoOptions.add("DES");
+            algoOptions.add("RC4");
         }
         return algoOptions;
     }
