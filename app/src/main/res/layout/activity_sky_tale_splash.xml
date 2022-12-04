@@ -1,27 +1,39 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.appcompat.widget.LinearLayoutCompat xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#039AF1"
     android:gravity="center"
+    android:orientation="vertical"
     tools:context=".activity.SkyTaleSplashActivity">
-    
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/app_name"
-        android:textSize="35sp"
-        android:textStyle="bold"
-        android:textColor="@color/white"
-        android:id="@+id/appName"/>
+
+    <ImageView
+            android:id="@+id/imageView"
+            android:layout_width="300dp"
+            android:layout_height="250dp"
+            android:src="@drawable/skytale_icon"
+    />
 
     <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/subTitle"
-        android:textSize="20sp"
-        android:textStyle="bold"
-        android:textColor="@color/white"
-        android:layout_below="@+id/appName" />
-</RelativeLayout>
+            android:id="@+id/textView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="80dp"
+            android:text="SkyTale Cryptography"
+            android:textAlignment="center"
+            android:textColor="@color/black"
+            android:textSize="50dp"
+            android:textStyle="italic" />
+
+    <TextView
+            android:id="@+id/textView2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="20dp"
+            android:letterSpacing=".4"
+            android:text="Encryptor Decryptor"
+            android:textAlignment="center"
+            android:textColor="#0000ff"
+            android:layout_marginTop="10dp"
+    />
+</androidx.appcompat.widget.LinearLayoutCompat>
