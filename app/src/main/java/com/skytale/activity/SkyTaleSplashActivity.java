@@ -16,9 +16,9 @@ public class SkyTaleSplashActivity extends AppCompatActivity {
 
     private final static int SPLASH_SCREEN = 2500;
 
-    ImageView imageView;
-    TextView textView1, textView2;
-    Animation top, bottom;
+    private ImageView imageView;
+    private TextView textView1, textView2;
+    private Animation top, bottom;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
