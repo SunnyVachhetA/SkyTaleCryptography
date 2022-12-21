@@ -2,6 +2,9 @@ package com.skytale.tabfragments;
 
 import android.content.Context;
 import android.os.Bundle;
+import android.text.Editable;
+import android.text.TextWatcher;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -42,6 +45,26 @@ public class EncrypterFragment extends Fragment implements View.OnClickListener 
         copyButton.setOnClickListener(this);
         pasteButton.setOnClickListener(this);
         encryptButton.setOnClickListener(this);
+
+        inputText.addTextChangedListener(
+                new TextWatcher() {
+                    @Override
+                    public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+                    }
+
+                    @Override
+                    public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+                        Log.i("TextChange", getUserInput());
+                        ClearUtil.clearText(resultText);
+                    }
+
+                    @Override
+                    public void afterTextChanged(Editable editable) {
+
+                    }
+                }
+        );
         algorithm.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
